@@ -1,17 +1,17 @@
 name: WebdriverIO Test
-on: [push,pull_request]
+on: [push, pull_request]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
+  test:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: "18"
     - name: Install Dependencies
-      run: |
-        sudo apt-get update && sudo apt-get install -y nodejs npm
-        npm install
+      run: npm install
     - name: Run Tests
-      run: |
-        npx wdio wdio.conf.js
+      run: npm run wdio
