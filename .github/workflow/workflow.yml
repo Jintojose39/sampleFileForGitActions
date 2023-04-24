@@ -1,8 +1,5 @@
-name: WebdriverIO Tests
-
-on:
-  push:
-    branches: [ main ]
+name: WebdriverIO Test
+on: [push,pull_request]
 
 jobs:
   build:
